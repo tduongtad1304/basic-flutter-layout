@@ -1,16 +1,18 @@
 # loginscreen
 
-A new Flutter project.
+Flutter App Layout for Login Form
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is about to demonstrate how to build a basic Flutter layout application, specifically Login Form
 
-A few resources to get you started if this is your first Flutter project:
+## Details Picture ##
+### Overview ###
+<img src="https://f5-zpcloud.zdn.vn/8831708980557336404/1621d714d4151e4b4704.jpg" alt="Overview" width="400" />
+<img src="https://f5-zpcloud.zdn.vn/1961057611574903750/956ba651a5506f0e3641.jpg" alt="InputEmail" width="400" />
+<img src="https://f5-zpcloud.zdn.vn/2304701604879189781/83bbbc84bf8575db2c94.jpg" alt="InputPassword" width="400" />
+<img src="https://f5-zpcloud.zdn.vn/4626963255592811005/705ed667d5661f384677.jpg" alt="Validation" width="400" />
+<img src="https://f5-zpcloud.zdn.vn/1953169516066217238/85b8869b859a4fc4168b.jpg" alt="Validation-success" width="400" />
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
