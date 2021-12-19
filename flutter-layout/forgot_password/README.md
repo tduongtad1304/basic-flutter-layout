@@ -1,16 +1,23 @@
 # forgot_password
 
-A new Flutter project.
+Flutter App Layout for Login Form
 
-## Getting Started
+# Getting Started
 
-This project is a starting point for a Flutter application.
+This project is about to demonstrate how to build a basic Flutter layout application, specifically Forgot Password Screen
 
-A few resources to get you started if this is your first Flutter project:
+## Details Image
+### Overview
+<img src="https://f5-zpcloud.zdn.vn/2956927641784141479/5ec065816680acdef591.jpg" alt="Overview" width="400" />
+<img src="https://f5-zpcloud.zdn.vn/418820533372121856/9dad9fb59cb456ea0fa5.jpg" alt="InputEmail" width="400" />
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**************************
+### Validation
+<img src="https://f4-zpcloud.zdn.vn/4304928777790205597/dd48454246438c1dd552.jpg" alt="Validation" width="400" />
+<img src="https://f5-zpcloud.zdn.vn/6770923835938643226/841e37103411fe4fa700.jpg" alt="Validation-success" width="400" />
+<img src="https://f5-zpcloud.zdn.vn/3761737055229290988/e888aebbadba67e43eab.jpg" alt="Validation-success" width="400" />
+
+
+
+
