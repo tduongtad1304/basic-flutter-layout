@@ -1,7 +1,7 @@
 # basic-flutter-layout
 ## Created by Thai Duong Do (Tad Wilson) for non-commercial purposes
 
-If you have any questions about this projects, please contact me at : dothaiduong9a1@gmail.com \
+If you have any questions about this project, please contact me at : dothaiduong9a1@gmail.com \
 \
 Clone the repository by : \
 `git clone <repository_url>`
@@ -9,6 +9,7 @@ Clone the repository by : \
 Then open the projects on any IDE and run: \
 `flutter pub get` \
 and feel free to use all codes and assets or try to contribute for my code if you investigate any problems. \
+\
 Appreciate all your contributions!
 
 ## Main topic ##
