@@ -4,7 +4,7 @@
 If you have any questions about this project, please contact me at : dothaiduong9a1@gmail.com \
 \
 Clone the repository by : \
-`git clone <repository_url>`
+`git clone https://github.com/tduongtad1304/basic-flutter-layout.git`
 
 Then open the projects on any IDE and run: \
 `flutter pub get` \
