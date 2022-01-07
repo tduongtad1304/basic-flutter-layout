@@ -1,7 +1,10 @@
 // ignore_for_file: prefer_const_constructors, avoid_print, unnecessary_this
 
 import 'package:flutter/material.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:checkbox_formfield/checkbox_formfield.dart';
+import 'components/CustomTextBox.dart';
+import 'components/PhoneField.dart';
+import 'components/TabMenu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -36,19 +39,22 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        toolbarHeight: 45,
         backgroundColor: Colors.white,
         centerTitle: true,
         leading: Icon(
           Icons.arrow_back_ios,
           color: Colors.grey,
+          size: 17,
         ),
         title: Text(
           widget.title,
           style: TextStyle(
             color: Colors.black.withAlpha(120),
-            fontSize: 25,
+            fontSize: 20,
           ),
         ),
       ),
@@ -69,42 +75,11 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: SizedBox(
-                      height: 50,
-                      child: Container(
-                        child: Center(
-                          child: Text(
-                            'Traveller',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22.5,
-                              letterSpacing: 1.3,
-                            ),
-                          ),
-                        ),
-                        color: Colors.lightBlue.shade300,
-                      ),
-                    ),
+                    child: TabMenu(
+                        'Traveller', Colors.lightBlue.shade300, Colors.white),
                   ),
                   Expanded(
-                    child: SizedBox(
-                      height: 50,
-                      child: Container(
-                        child: Center(
-                          child: Text(
-                            'Guide',
-                            style: TextStyle(
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22.5,
-                              letterSpacing: 1.3,
-                            ),
-                          ),
-                        ),
-                        color: Colors.white,
-                      ),
-                    ),
+                    child: TabMenu('Guide', Colors.white, Colors.black45),
                   ),
                 ],
               ),
@@ -119,38 +94,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               child: Column(
                 children: <Widget>[
-                  TextFormField(
-                    validator: (value) {
-                      if (value == null ||
-                          value.isEmpty ||
-                          !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                              .hasMatch(value)) {
-                        return 'Please enter an valid email';
-                      }
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                      hintText: 'user@gmail.com',
-                      labelText: 'Email*',
-                      labelStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.grey,
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x325161ff),
-                          width: 2.0,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(3),
-                        ),
-                      ),
-                    ),
-                  ),
+                  CustomTextBox(
+                      'user@gmail.com', 'Email', 'Please input a valid email'),
                   SizedBox(
                     height: 10,
                   ),
@@ -160,26 +105,26 @@ class _MyHomePageState extends State<MyHomePage> {
                     controller: _passKey,
                     validator: (value) {
                       if (value == null || value.isEmpty || value.length < 8) {
-                        return 'Password must be more than 8 characters';
+                        return 'Password needs more than 8 characters';
                       }
                       return null;
                     },
                     decoration: InputDecoration(
-                      hintText: 'Password',
-                      labelText: 'Password*',
-                      labelStyle: TextStyle(
+                      hintText: 'Password*',
+                      labelText: 'Password', //Password
+                      labelStyle: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
                         color: Colors.grey,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
                           color: Color(0x325161ff),
                           width: 2.0,
                           style: BorderStyle.solid,
                         ),
                       ),
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(3),
                         ),
@@ -194,28 +139,30 @@ class _MyHomePageState extends State<MyHomePage> {
                     obscuringCharacter: '*',
                     controller: _confirmPassKey,
                     validator: (value) {
-                      if (value == null || value.isEmpty) return 'Please confirm your password';
-                      if (value != _passKey.text)
-                        // ignore: curly_braces_in_flow_control_structures
-                        return 'Confirm Password is not match with Password';
+                      if (value == null || value.isEmpty) {
+                        return 'Please confirm your password';
+                      }
+                      if (value != _passKey.text) {
+                        return 'Confirm password is not match password';
+                      }
                       return null;
                     },
                     decoration: InputDecoration(
-                      hintText: 'Confirm password',
-                      labelText: 'Confirm password*',
-                      labelStyle: TextStyle(
+                      hintText: 'Confirm Password*',
+                      labelText: 'Confirm Password', //Confirm password
+                      labelStyle: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w400,
                         color: Colors.grey,
                       ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(
                           color: Color(0x325161ff),
                           width: 2.0,
                           style: BorderStyle.solid,
                         ),
                       ),
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(
                           Radius.circular(3),
                         ),
@@ -229,152 +176,47 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: <Widget>[
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2 - 50,
-                        child: TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Invalid first name';
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            hintText: 'First Name',
-                            labelText: 'First Name*',
-                            labelStyle: TextStyle(
-                              fontSize: 19.5,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.grey,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0x325161ff),
-                                width: 2.0,
-                                style: BorderStyle.solid,
-                              ),
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(3),
-                              ),
-                            ),
-                          ),
-                        ),
+                        child: CustomTextBox(
+                            'First name*', 'First name', 'Invalid first name'),
                       ),
                       SizedBox(
                         width: 10,
                       ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2 - 40,
-                        child: TextFormField(
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Invalid last name';
-                            }
-                            return null;
-                          },
-                          decoration: InputDecoration(
-                            hintText: 'Last Name',
-                            labelText: 'Last Name*',
-                            labelStyle: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.grey,
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: Color(0x325161ff),
-                                width: 2.0,
-                                style: BorderStyle.solid,
-                              ),
-                            ),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(3),
-                              ),
-                            ),
-                          ),
-                        ),
+                        child: CustomTextBox(
+                            'Last name*', 'Last name', 'Invalid last name'),
                       ),
                     ],
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  IntlPhoneField(
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      labelText: 'Phone number*',
-                      labelStyle: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.grey,
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color(0x325161ff),
-                          width: 2.0,
-                          style: BorderStyle.solid,
-                        ),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(3),
-                        ),
+                  PhoneField('Phone number', 'VN'),
+                  CheckboxListTileFormField(
+                    title: Text(
+                      'Agree on our terms & services',
+                      style: TextStyle(
+                        fontSize: 13,
                       ),
                     ),
-                    initialCountryCode: 'VN',
-                    onChanged: (phone) {
-                      print(phone.completeNumber);
+                    onSaved: (bool? value) {
+                      print(value);
                     },
-                    onCountryChanged: (phone) {
-                      print('Country code changed to: ' + phone.countryCode.toString());
+                    validator: (bool? value) {
+                      if (value!) {
+                        return null;
+                      } else {
+                        return 'Please check on the checkbox';
+                      }
                     },
-                  ),
-                  // SizedBox(
-                  //   height: 3,
-                  // ),
-                  // TextFormField(
-                  //   keyboardType: TextInputType.number,
-                  //   validator: (value) {
-                  //     if (value == null || value.isEmpty || value.length < 8) {
-                  //       return 'Password must be more than 8 characters';
-                  //     }
-                  //     return null;
-                  //   },
-                  //   decoration: InputDecoration(
-                  //     hintText: 'ID Kakao Talk',
-                  //     labelText: 'ID Kakao Talk',
-                  //     labelStyle:
-                  //         TextStyle(fontSize: 20, fontWeight: FontWeight.w400, color: Colors.grey),
-                  //     enabledBorder: OutlineInputBorder(
-                  //         borderSide: const BorderSide(
-                  //       color: Color(0x325161ff),
-                  //       width: 2.0,
-                  //       style: BorderStyle.solid,
-                  //     )),
-                  //     border: OutlineInputBorder(
-                  //       borderRadius: BorderRadius.all(Radius.circular(3)),
-                  //     ),
-                  //   ),
-                  // ),
-                  Row(
-                    children: <Widget>[
-                      Checkbox(
-                        checkColor: Colors.white,
-                        activeColor: Colors.lightBlue.shade300,
-                        value: this.value,
-                        onChanged: (bool? value) {
-                          setState(() {
-                            this.value = value!;
-                          });
-                        },
-                      ),
-                      Text(
-                        'Agree on our terms & services',
-                        style: TextStyle(
-                          color: Colors.black.withAlpha(150),
-                        ),
-                      ),
-                    ],
+                    onChanged: (value) {
+                      if (value) {
+                        print('ListTile Checked');
+                      } else {
+                        print('ListTile Not Checked');
+                      }
+                    },
                   ),
                   SizedBox(
                     height: 5,
@@ -386,13 +228,31 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: Text('Sign Up'),
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          _showMaterialDialog();
+                          _formKey.currentState!.save();
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text('Notification'),
+                                content: Text('Sign Up Successfully!'),
+                                actions: <Widget>[
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text('Close'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         }
                       },
                       style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.lightBlue.shade300),
-                        shadowColor: MaterialStateProperty.all<Color>(Colors.blueGrey),
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.lightBlue.shade300),
+                        shadowColor:
+                            MaterialStateProperty.all<Color>(Colors.blueGrey),
                       ),
                     ),
                   ),
@@ -403,29 +263,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-  }
-
-  void _showMaterialDialog() {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text('Notification'),
-          content: Text('Sign Up Successfully!'),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                _dismissDialog();
-              },
-              child: Text('Close'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  _dismissDialog() {
-    Navigator.pop(context);
   }
 }
