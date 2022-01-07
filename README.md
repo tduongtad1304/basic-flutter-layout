@@ -38,8 +38,8 @@ We are going to approach to build 4 layouts related to "Basic Actions with An Ap
   - Password
   - Confirm password
   - First Name & Last Name
-  - Select country code phone number and input with [intl_phone_field](https://pub.dev/packages/intl_phone_field) & [checkbox_formfield](https://pub.dev/packages/checkbox_formfield) library
-- Create checkbox for checking or agreeing terms & services for i.e
+  - Select country code phone number and input with [intl_phone_field](https://pub.dev/packages/intl_phone_field) library
+- Create checkbox for checking or agreeing terms & services for i.e, then validation with [checkbox_formfield](https://pub.dev/packages/checkbox_formfield) library
 - Create Signup button for submitting validation
 - Display notification for success signup
 #### Overview ####
